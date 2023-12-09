@@ -163,8 +163,8 @@ const products = [{
 }
 ]
 let listCarts = [];
-const initApp = () => {
-products.forEach((product, key) => {
+
+products.forEach((product) => {
   productsHTML += `
   <div class="swiper-slide box d-flex ">
    <div class="icons">
@@ -178,25 +178,13 @@ products.forEach((product, key) => {
      <div class="content2">
          <h3>featured books</h3>
           <div class="price pb-4">$${product.price.priceCents / 100} <span>$${product.price.priceCents2 / 100}</span></div>
-           <button onclick="addToCart(${key})" class="btn3 js-add-to-cart" data-product-id="${product.id}">add to cart</button>  
+           <button class="btn3 js-add-to-cart" data-product-id="${product.id}">add to cart</button>  
            </div>  
     </div>
   `;
 
 })
 document.querySelector('.js-products').innerHTML = productsHTML;
-}
-function addToCart(index) {
-  const selectedProduct = products[index]; // Retrieve the selected product from the products array
-  listCarts.push(selectedProduct); // Add the selected product to the list of carts
-  console.log(`Product added to cart: ${selectedProduct.id}`);
-  console.log('Updated cart:', listCarts);
-  // You can perform other cart-related actions or UI updates here
-}
-
-// Call the initApp function to initialize the app
-initApp();
-
 
 
 //product slider end
@@ -210,12 +198,42 @@ initApp();
 
     const name = document.getElementById('name');
     const lastName = document.getElementById('last-name');
-    const email = document.getElementById('email2');
-    const email2 = document.getElementById('email');
+    const email = document.getElementById('email');
+    const loginEmail = document.getElementById('login-email');
     const pass = document.getElementById('pass');
     const gender = document.querySelector('input[name="gender"]:checked');
     const message = document.getElementById('message');
+    document.getElementById("sign-in-button").addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent form submission to check errors first
 
+      // Reset previous error messages
+      document.getElementById("email2Error").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+
+      // Retrieve input values
+      email = document.getElementById("email").value;
+      pass = document.getElementById("pass").value;
+
+      // Validation checks
+      if (loginEmail.trim() === "") {
+          document.getElementById("email2Error").textContent = "Please enter your email.";
+          return;
+      }
+
+      if (pass.trim() === "") {
+          document.getElementById("passwordError").textContent = "Please enter your password.";
+          return;
+      }
+  
+      if (loginEmail === "example@example.com" && pass === "password123") {
+        // Close the login form
+        var loginForm = document.querySelector(".login-form-container");
+        loginForm.style.display = "none";
+    } else {
+        // If email or password are incorrect, show an error message (this is a simplified example)
+        alert("Invalid email or password. Please try again.");
+    }
+  });
 
     if (name.value.trim() === '') {
         displayError('nameError', 'Please enter your name (at least 3 characters)');
@@ -228,20 +246,10 @@ initApp();
       displayError('lastNameError', 'Last name should be at least 3 characters');
   }
     if (email.value.trim() === '') {
-        displayError('emailError', 'Please enter your email address');
-    } else if (!validateEmail(email.value.trim())) {
-        displayError('emailError', 'Please enter a valid email address');
-    }
-    if (email2.value.trim() === '') {
-      displayError('email2Error', 'Please enter your email address');
-  } else if (!validateEmail(email2.value.trim())) {
-      displayError('email2Error', 'Please enter a valid email address');
+      displayError('emailError', 'Please enter your email address');
+  } else if (!validateEmail(email.value.trim())) {
+      displayError('emailError', 'Please enter a valid email address');
   }
-  if (pass.value.trim() === '') {
-    displayError('passwordError', 'Please enter a password');
-} else if (pass.value.trim().length < 8) {
-    displayError('passwordError', 'Password should be at least 8 characters');
-}
     if (!gender) {
         displayError('genderError', 'Please select a gender');
     }
@@ -261,9 +269,9 @@ function validateEmail(email) {
   const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(gmail.com|yahoo.com)$/;
   return re.test(email);
 }
-function validateEmail(email2) {
+function validateEmail(loginEmail) {
   const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(gmail.com|yahoo.com)$/;
-  return re.test(email2);
+  return re.test(loginEmail);
 }
 
 function displayError(id, message) {

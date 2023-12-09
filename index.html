@@ -26,11 +26,6 @@
             </form>
 
             <div class="icons fs-5 d-flex" >
-                <div class="heart pe-2 text-decoration-none"><i class="fas fa-heart"></i></div>
-                <div class="cart pe-2">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="quantity">0</span>
-                  </div>
                 <div id="login-btn"><i class="fas fa-user"></i></div>
             </div>
         </div>
@@ -38,23 +33,7 @@
             <ul id="navbar" class="navbar mb-0 py-3"></ul>
         </div>
     </header>
-    <!-- cart start -->
-    <!-- <div class="cart-container">
-         <div class="list">
 
-         </div>
-         <div class="card position-fixed">
-            <h1>Card</h1>
-            <ul class="listCard"></ul>
-            <div class="checkOut">
-                <div class="total">0</div>
-                <div class="closeShopping"></div>
-            </div>
-         </div>
-    </div> -->
-
-    
-    <!-- cart end -->
     
     <!-- login-form start-->
     <div class="login-form-container d-flex align-items-center justify-content-center">
@@ -65,7 +44,7 @@
             <h3>sign in</h3>
             <div class="username">
             <span>username</span>
-            <input type="email" name="" class="box" placeholder="enter your email" id="email">
+            <input type="email" name="login" class="box" placeholder="enter your email" id="login-email">
             <span class="error-message" id="email2Error"></span></div>
             <div class="password">
             <span>password</span>
@@ -75,8 +54,6 @@
                 <label for="remember-me">remember me</label>
             </div>
             <input type="submit" value="sign in" id="sign-in-button" class="btn text-align-center w-100">
-            <p>forgot password ? <a href="#">click here</a></p>
-            <p>don't have an account ? <a href="#">create one</a></p>
         </form>
     </div>
     <!-- login-form end-->
@@ -130,7 +107,7 @@
             </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" id="email2" name="email" placeholder="Enter your email address" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                     <span class="error-message" id="emailError"></span>
                 </div>
                 <div class="form-group">

@@ -26,7 +26,7 @@
 ul li{
     list-style: none;
 }
-#featured{
+#featured, #contact{
     padding: 5rem 11%;
 }
 .header1{
@@ -169,15 +169,7 @@ form .btn:hover{
     background-color: var(--hover);
     color: #fff;
 }
-form p{
-    padding-top: .7rem;
-    font-size: 1rem;
-}
-form p a{
-    text-decoration: underline;
-    color: var(--hover);
-    font-weight: 500;
-}
+
 #close-login-btn{
     position: absolute;
     top:1.5rem; right:2.5rem;
@@ -337,8 +329,8 @@ form p a{
 
 
 #form-container {
-    width: 60%;
-    margin: 20px auto;
+    width: 70%;
+    margin: 0px auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -356,7 +348,7 @@ label {
 }
 
 input[type="text"],
-#email2,
+#email,
 textarea,
 input[type="submit"] {
     width: calc(100% - 12px);
@@ -385,80 +377,6 @@ input[type="submit"] {
     background-size: cover;
 }
 
-.cart-container{
-    width: 1000px;
-    margin: auto;
-    transition: 0.5s;
-
-}
-.cart-container h1{
-    color: var(--blue);
-}
-.cart span{
-    background: red;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    position: absolute;
-    top:15px;
-    right:10.5%;
-    padding:3px 6px;
-    font-size: 12px;
-}
-.list{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 50px;
-}
-.card{
-    top: 0;
-    left: 100%;
-    width: 500px;
-    background-color: var(--black);
-    height: 100vh;
-    transition: 0.5s;
-}
-.active .card{
-    left:calc(100%-500px);
-
-}
-.active .cart-container{
-    transform: translateX(-200px);
-}
-.card h1{
-    color: var(--blue);
-    font-weight: 300;
-    height: 80px;
-    display: flex;
-    align-items: center;
-}
-.card .checkOut{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.card .checkOut div{
-    background-color: var(--blue);
-    color:#fff;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-}
-.card .checkOut div:nth-child(2){
-    background-color: var(--hover);
-    color: #fff;
-}
-
 
 
 
@@ -471,6 +389,11 @@ input[type="submit"] {
     }
     .header1{
         padding: 2rem;
+    }
+    #form-container {
+        width: 100%;
+
+        
     }
 }
 
