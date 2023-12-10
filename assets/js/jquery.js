@@ -90,22 +90,44 @@ $(document).ready(function(){
         $(this).css('background-color', ''); 
     });
 });
+$(document).ready(function(){
+    // Dodavanje hover efekata za .btn3
+    $('#login-btn').hover(function(){
+        $(this).css('background-color', 'var(--hover)');
+    }, function(){
+        $(this).css('background-color', ''); 
+    });
+});
+$(document).ready(function(){
+    $('.footer-nav li a').hover(function(){
+        $(this).css('background-color', 'var(--hover)');
+    }, function(){
+        $(this).css('background-color', ''); 
+    });
+});
+$(document).ready(function(){
+    $('.logo-futer a').hover(function(){
+        $(this).css('background-color', 'var(--hover)');
+    }, function(){
+        $(this).css('background-color', ''); 
+    });
+});
+$(document).ready(function(){
+    $('#socialIcons i').hover(function(){
+        $(this).css('background-color', 'var(--hover)');
+    }, function(){
+        $(this).css('background-color', ''); 
+    });
+});
 
 $(document).ready(function(){
-    // Dodavanje hover efekata za .featured-slider .box
     $('.featured-slider .box').hover(function(){
-        // transformacija za .icons
         $(this).find('.icons').css('transform', 'translateY(0%)');
-        
-        // transformacija za .image
         $(this).find('.image').css('transform', 'translateY(4rem)');
     }, function(){
-        // Vraćanje na početne vrednosti kada miš napusti
         $(this).find('.icons').css('transform', '');
         $(this).find('.image').css('transform', '');
     });
-
-    // Dodavanje hover efekata za .featured-slider .box .icons a
     $('.featured-slider .box .icons a').hover(function(){
         $(this).css({
             'background': 'var(--blue)',
@@ -118,5 +140,28 @@ $(document).ready(function(){
         });
     });
 });
+$(document).ready(function() {
+    var images = [
+      'assets/img/about.jpg',
+      'assets/img/about2.jpg',
+      'assets/img/about3.jpg'
+    ];
 
+
+    var slider = $('.slider');
+    $.each(images, function(index, image) {
+        var slide = '<div><img src="' + image + '" alt="Slide ' + (index + 1) + '"></div>';
+        slider.append(slide);
+    });
+    $(document).ready(function(){
+        $('.slider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+        });
+      });
+    
+  });
 });
+

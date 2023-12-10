@@ -32,8 +32,8 @@ document.querySelector('#close-login-btn').onclick = () =>{
 //navigation start
 var navigationItems = [
     { title: 'Home', url: 'index.html' },
+    { title: 'About', url: 'index.html#about' },
     { title: 'Featured', url: 'index.html#featured' },
-    { title: 'Arrivals', url: 'index.html#arrivals' },
     { title: 'Contact', url: 'index.html#contact' },
     { title: 'Author', url: 'author.html' }
   ];
@@ -93,6 +93,18 @@ var blocksData = [
   
 // dynamic blocks end
 
+//read more/less
+function prikaziDodatniTekst() {
+  $('#dodatniTekst').show();
+  $('#readMore').hide();
+  $('#tekstNastavak').show();
+}
+
+function sakrijDodatniTekst() {
+  $('#dodatniTekst').hide();
+  $('#readMore').show();
+  $('#tekstNastavak').hide();
+}
 //product slider start
 let productsHTML = '';
 const products = [{
@@ -321,5 +333,59 @@ var swiper = new Swiper(".featured-slider", {
 // swiper-slide end
 
 
+//futer
+var footerItems = [
+  { title: 'Home', url: 'index.html' },
+    { title: 'About', url: 'index.html#about' },
+    { title: 'Featured', url: 'index.html#featured' },
+    { title: 'Contact', url: 'index.html#contact' },
+    { title: 'Author', url: 'author.html' }
+];
 
+function createFooter() {
+  var footer = document.querySelector('#footer');
+  var nav = document.getElementById('navigation');
+  
+  navigationItems.forEach(function(item) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.textContent = item.title;
+    a.href = item.url;
+    li.appendChild(a);
+    nav.appendChild(li);
+  });
+
+  var socialMediaIcons = ['facebook', 'twitter', 'instagram']; // Popis društvenih mreža
+
+  function createSocialIcons() {
+      var socialIconsDiv = document.getElementById('socialIcons');
+  
+      socialMediaIcons.forEach(function(icon) {
+          var iconElement = document.createElement('i');
+          iconElement.classList.add('fab', 'fa-' + icon);
+  
+          var link = document.createElement('a');
+          var socialUrl = ''; 
+  
+          if (icon === 'facebook') {
+              socialUrl = 'https://www.facebook.com/';
+          } else if (icon === 'twitter') {
+              socialUrl = 'https://www.twitter.com/';
+          } else if (icon === 'instagram') {
+              socialUrl = 'https://www.instagram.com/';
+          }
+  
+          link.href = socialUrl;
+          link.target = '_blank'; 
+          link.appendChild(iconElement);
+          socialIconsDiv.appendChild(link);
+      });
+  }
+  
+  createSocialIcons();
+  
+iconDiv.appendChild(navigationUl);
+}
+
+createFooter();
 

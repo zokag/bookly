@@ -26,7 +26,7 @@
 ul li{
     list-style: none;
 }
-#featured, #contact{
+#featured, #contact, #about{
     padding: 5rem 11%;
 }
 .header1{
@@ -68,7 +68,7 @@ ul li{
     cursor: pointer;
     
 }
-/* Hamburger */
+
 
 .header2{
     background-color:var(--blue)
@@ -115,10 +115,19 @@ ul li{
 }
 .login-form-container form span{
     display: block;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+.login-form-container form p{
+    display: block;
     font-size: 1.5rem;
     padding-top: 1rem;
 }
-
+#login-btn{
+    background-color: #071a2b;
+    color: #fff;
+    padding: .7rem 2rem;
+}
 .box{
     margin:.7rem 0; 
     font-size: 1.3rem;
@@ -164,7 +173,16 @@ form .btn:hover{
     color:var(--black);
     cursor:pointer;
 }
-
+.slider {
+    width: 80%;
+    margin: auto;
+    height: auto;
+  }
+  .slider img {
+    width: 100%;
+    height: auto;
+    
+  }
 .content, .content a{
     flex-direction: column;
     color: #fff;
@@ -214,6 +232,22 @@ form .btn:hover{
     background: #fff;
     border: var(--border);
 }
+.content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tekst p{
+    text-transform: none!important;
+  }
+  
+  #readMore, #readLess  {
+    color: rgb(144, 180, 228);
+    cursor: pointer;
+  }
+  .blue{
+    color: rgb(93, 140, 172);
+  }
 .featured-slider .box{
     width: 25rem;
     margin: 2rem 0;
@@ -361,7 +395,69 @@ input[type="submit"] {
 .homepage i{
    color: var(--blue);
 }
+#footer {
+    background-color:var(--blue);
+    padding: 20px 0;
+    text-align: center;
+    height: 180px;
+}
+.white-line {
+    border: 1px solid #fff; 
+    margin: 20px 0; 
+}
 
+#link-to-center {
+    text-align: center; 
+    color: #fff;
+}
+#link-to-center a, .copy p{
+    text-align: center; 
+    color: #fff;
+}
+#footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Stil za navigaciju */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    display: inline-block;
+    margin-right:18px ;
+}
+
+.footer-nav li:last-child {
+    margin-right: 0;
+}
+
+.footer-nav a, .logo-futer{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+.logo-futer a, .footer-nav li a{
+    color: #fff;
+    padding: 0.5rem;
+}
+
+
+
+/* Stil za ikonice društvenih mreža */
+#socialIcons {
+    font-size: 24px;
+}
+
+#socialIcons i {
+    margin-right: 15px;
+    color: #fff;
+    padding: 0.5rem;
+}
 
 /* media queries */
 @media (max-width:1024px) {
