@@ -29,9 +29,9 @@
                     <i class="fa-duotone fa-book-bookmark"></i>
                     Bookly</a>
             </div>
-            <form action="" class="search-form d-flex align-items-center">
+            <form action="" class="search-form">
                 <input type="search" name="" placeholder="search here..." id="search-box" class="ps-2">
-                <label for="search-box" class="fas fa-search ps-0 pe-3"></label>
+                <label for="search-box" class="search-icon fas fa-search ps-0 pe-3"></label>
             </form>
 
             <div class="fs-5 d-flex" >
@@ -57,10 +57,10 @@
             <span class="error-message pt-0" id="userNameError"></span></div>
             <div class="password">
             <p class="mb-0">password</p>
-            <input type="password" name="" class="box" placeholder="enter your password" id="pass" required>
+            <input type="password" name="password" class="box" placeholder="enter your password" id="pass" required>
             <span class="error-message pt-0" id="passwordError"></span></div>
             <div class="checkbox d-flex align-items-center">
-                <input type="checkbox" name="" id="remember-me">
+                <input type="checkbox" name="checkbox" id="remember-me">
                 <label for="remember-me">remember me</label>
             </div>
             <button type="submit" class="btn text-align-center w-100" id="sign-in-button">sign in</button>
@@ -72,7 +72,7 @@
     <main>
         <section id="home" class="home d-flex align-items-center">
         <div class="container-fluid d-flex justify-content-center">
-                <div class="col-4 content text-center">
+                <div class="col-lg-4 col-md-6 content text-center">
                     <h1>upto 60% off</h1>
                     <p class="mb-4">Welcome to Bookly, where the world of literature awaits your exploration.</p>
                     <a href="#featured" class="btn2">shop now</a>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="form-group">
                     <label>Gender:</label>
-                    <div class="gender-group">
+                    <div class="gender-group mt-2">
                         <input type="radio" id="male" name="gender" value="male" required>
                         <label for="male">Male</label>
                         <input type="radio" id="female" name="gender" value="female" required>

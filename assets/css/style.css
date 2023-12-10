@@ -446,7 +446,10 @@ input[type="submit"] {
     padding: 0.5rem;
 }
 
-
+.search-form{
+    display: flex;
+    align-items: center;
+}
 
 /* Stil za ikonice društvenih mreža */
 #socialIcons {
@@ -454,7 +457,6 @@ input[type="submit"] {
 }
 
 #socialIcons i {
-    margin-right: 15px;
     color: #fff;
     padding: 0.5rem;
 }
@@ -469,13 +471,34 @@ input[type="submit"] {
     }
     #form-container {
         width: 100%;
-
-        
     }
-
-
+    .footer-nav a{
+        font-size: 15px;
+    }
+    .home{
+        height: 450px;
+    }
+    .home p{
+        font-size: 1.4rem;
+    }
+    .home h1{
+        font-size: 2.8rem;
+    }
 }
 
+@media (max-width:900px) {
+    .footer-nav li {
+        margin-right:1px ;
+    }
+    #navigation{
+        display: flex;
+        flex-direction:column ;
+    }
+    #footer{
+        height: 250px;
+    }
+
+}
 @media (max-width:768px) {
     html{
         font-size: 75%;
@@ -487,6 +510,12 @@ input[type="submit"] {
     .bg-photo{
         height: 500px;
     }
+    .home{
+        height: 400px;
+    }
+    #background{
+        height: 300px;
+    }
 
 }
 @media (max-width:620px) {
@@ -497,5 +526,20 @@ input[type="submit"] {
     .bg-photo{
         height: 400px;
     }
+    #background{
+        display: flex;
+        text-align: center;
+    }
 
+}
+@media (max-width:540px) {
+    #search-box{
+       display: none!important;
+    }
+    .search-icon{
+        display: none!important;
+     }
+     .search-form{
+        display: none!important;
+     }
 }
