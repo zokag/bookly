@@ -26,28 +26,12 @@ document.querySelector('#close-login-btn').onclick = () =>{
 }
 //loginform end
 
-//cart start
-const openShopping = document.querySelector(".cart");
-const closeShopping = document.querySelector(".closeShopping");
-const list = document.querySelector(".list");
-const listCard = document.querySelector(".listCard");
-const total = document.querySelector(".total");
-const body = document.querySelector("body");
-const quantity = document.querySelector(".quantity");
-
-// cart.addEventListener("click",()=>{
-//   body.classList.add("active")
-// })
-//   closeShopping.addEventListener("click",()=>{
-//   body.classList.remove("active")
-// })
-
 
 
 
 //navigation start
 var navigationItems = [
-    { title: 'Home', url: 'index.html#home' },
+    { title: 'Home', url: 'index.html' },
     { title: 'Featured', url: 'index.html#featured' },
     { title: 'Arrivals', url: 'index.html#arrivals' },
     { title: 'Contact', url: 'index.html#contact' },
@@ -69,6 +53,7 @@ var navigationItems = [
 
   createNavigation();
 //navigation end
+
 
   // dynamic blocks start
 var blocksData = [
@@ -178,7 +163,7 @@ products.forEach((product) => {
      <div class="content2">
          <h3>featured books</h3>
           <div class="price pb-4">$${product.price.priceCents / 100} <span>$${product.price.priceCents2 / 100}</span></div>
-           <button class="btn3 js-add-to-cart" data-product-id="${product.id}">add to cart</button>  
+           <button class="btn3 js-add-to-cart" data-product-id="${product.id}">Buy now</button>  
            </div>  
     </div>
   `;
@@ -189,105 +174,113 @@ document.querySelector('.js-products').innerHTML = productsHTML;
 
 //product slider end
 
+//sign-in form start
+document.getElementById('signIn').addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  const userName = document.getElementById('login-name').value;
+  const password = document.getElementById('pass').value;
+
+  var isValid = true; 
 
 
-  document.getElementById('myForm').addEventListener('submit', function(event) {
-    event.preventDefault(); 
+  var regUserName = /^(?=.*\d)[a-z\d]{5,}$/;
+if(!regUserName.test(userName)){
+  document.getElementById('userNameError').textContent = "Username must have minimal 5 characters(all lowercase) and at least one digit (0-9)";
+  isValid = false;
+}
+else {
+  document.getElementById('userNameError').textContent = "";
+}
+var regPass = /^(?=.*[0-9])[a-z\d]{8,}$/;
+if(!regPass.test(password)){
+  document.getElementById('passwordError').textContent = "Your password must contain at least 8 characters, including only lowercase letters and at least one digit (0-9).";
+  isValid = false;
+}
+else {
+  document.getElementById('passwordError').textContent = "";
+}
 
-    clearErrors();
-
-    const name = document.getElementById('name');
-    const lastName = document.getElementById('last-name');
-    const email = document.getElementById('email');
-    const loginEmail = document.getElementById('login-email');
-    const pass = document.getElementById('pass');
-    const gender = document.querySelector('input[name="gender"]:checked');
-    const message = document.getElementById('message');
-    document.getElementById("sign-in-button").addEventListener("click", function(event) {
-      event.preventDefault(); // Prevent form submission to check errors first
-
-      // Reset previous error messages
-      document.getElementById("email2Error").textContent = "";
-      document.getElementById("passwordError").textContent = "";
-
-      // Retrieve input values
-      email = document.getElementById("email").value;
-      pass = document.getElementById("pass").value;
-
-      // Validation checks
-      if (loginEmail.trim() === "") {
-          document.getElementById("email2Error").textContent = "Please enter your email.";
-          return;
-      }
-
-      if (pass.trim() === "") {
-          document.getElementById("passwordError").textContent = "Please enter your password.";
-          return;
-      }
   
-      if (loginEmail === "example@example.com" && pass === "password123") {
-        // Close the login form
-        var loginForm = document.querySelector(".login-form-container");
-        loginForm.style.display = "none";
-    } else {
-        // If email or password are incorrect, show an error message (this is a simplified example)
-        alert("Invalid email or password. Please try again.");
-    }
-  });
+  if (isValid) {
+      // If valid, deleting values
+      document.getElementById('login-name').value = '';
+      document.getElementById('pass').value = '';
 
-    if (name.value.trim() === '') {
-        displayError('nameError', 'Please enter your name (at least 3 characters)');
-    } else if (name.value.trim().length < 3) {
-        displayError('nameError', 'Name should be at least 3 characters');
-    }
-    if (lastName.value.trim() === '') {
-      displayError('lastNameError', 'Please enter your last name (at least 3 characters)');
-  } else if (lastName.value.trim().length < 3) {
-      displayError('lastNameError', 'Last name should be at least 3 characters');
+
+      document.getElementById('success-message').textContent = "Successfully signed in!";
   }
-    if (email.value.trim() === '') {
-      displayError('emailError', 'Please enter your email address');
-  } else if (!validateEmail(email.value.trim())) {
-      displayError('emailError', 'Please enter a valid email address');
-  }
-    if (!gender) {
-        displayError('genderError', 'Please select a gender');
-    }
-
-    if (message.value.trim() === '') {
-        displayError('messageError', 'Please enter your message (at least 10 characters)');
-    } else if (message.value.trim().length < 10) {
-        displayError('messageError', 'Message should be at least 10 characters');
-    }
-
-    if (!document.querySelectorAll('.error-message:not(:empty)').length) {
-        console.log('Form submitted successfully!');
-    }
 });
 
-function validateEmail(email) {
-  const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(gmail.com|yahoo.com)$/;
-  return re.test(email);
-}
-function validateEmail(loginEmail) {
-  const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(gmail.com|yahoo.com)$/;
-  return re.test(loginEmail);
-}
 
-function displayError(id, message) {
-    const errorElement = document.getElementById(id);
-    errorElement.textContent = message;
-}
 
-function clearErrors() {
-    const errorMessages = document.querySelectorAll('.error-message');
-    errorMessages.forEach(error => {
-        error.textContent = '';
-    });
-}
+//sign-in form end
 
- 
+//contact form start
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  event.preventDefault(); 
 
+  const name = document.getElementById('name').value;
+  const lastName = document.getElementById('last-name').value;
+  const email = document.getElementById('email').value;
+  const gender = document.querySelector('input[name="gender"]:checked');
+  const message = document.getElementById('message').value;
+
+  var isValid = true; 
+
+  var regName = /^[A-Z][a-z]{2,15}(\s[A-Z][a-z]{4,20})?$/;
+  if (!regName.test(name)) {
+      document.getElementById('nameError').textContent = "Name must start with a capital and have minimal 3 letters!";
+      isValid = false;
+  } else {
+      document.getElementById('nameError').textContent = "";
+  }
+  
+  var regLastName = /^[A-Z][a-z]{2,15}(\s[A-Z][a-z]{4,20})?$/;
+  if (!regLastName.test(lastName)) {
+      document.getElementById('lastNameError').textContent = "Last name must start with a capital and have minimal 3 letters!";
+      isValid = false;
+  } else {
+      document.getElementById('lastNameError').textContent = ""; 
+  }
+
+  var SignUpReg = /^[a-z]{4,}[0-9]*@(gmail\.com|yahoo\.com|ict\.edu\.rs)$/;
+  if (!SignUpReg.test(email)) {
+      document.getElementById('emailError').textContent = "Use lowercase letters, without '.' and '@gmail.com' or @yahoo.com or '@ict.edu.rs' at the end.";
+      isValid = false;
+  } else {
+      document.getElementById('emailError').textContent = ""; 
+  }
+
+  if (!gender || !gender.value) { 
+      document.getElementById('genderError').textContent = 'Please select a gender';
+      isValid = false;
+  } else {
+      document.getElementById('genderError').textContent = ""; 
+  }
+
+  if (message.length < 10) {
+      document.getElementById('messageError').textContent = "Message should be at least 10 characters long.";
+      isValid = false;
+  } else {
+      document.getElementById('messageError').textContent = ""; 
+  }
+
+  if (isValid) {
+      // If valid, deleting values
+      document.getElementById('name').value = '';
+      document.getElementById('last-name').value = '';
+      document.getElementById('email').value = '';
+      gender.checked = false;
+      document.getElementById('message').value = '';
+
+
+      document.getElementById('success-message2').textContent = "Form successfully submitted!";
+  }
+});
+
+
+//contact form end
 
 
 
@@ -326,4 +319,7 @@ var swiper = new Swiper(".featured-slider", {
     },
   });
 // swiper-slide end
+
+
+
 

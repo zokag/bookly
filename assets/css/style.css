@@ -41,9 +41,7 @@ ul li{
     font-weight: bolder;
     color:#000;
 }
-.logo:hover{
-    color:rgb(34, 85, 129);
-}
+
 #search-box{
     width:30rem;
     height: 3rem;
@@ -62,11 +60,6 @@ ul li{
     padding-left: 1rem;
     color: #000;
 }
-.search-form label:hover{
-    color:rgb(34, 85, 129);
-}
-  
-
 
 .icons i,
 .icons div{
@@ -75,11 +68,7 @@ ul li{
     cursor: pointer;
     
 }
-
-.icons i:hover,
-.icons div:hover{
-    color:rgb(34, 85, 129);
-}
+/* Hamburger */
 
 .header2{
     background-color:var(--blue)
@@ -92,9 +81,7 @@ ul li{
     color: #fff;
     
 }
-.navbar a:hover{
-    background:var(--hover);
-}
+
 .header .header2.active{
     position: fixed;
     top:0; left:0; right: 0;
@@ -195,24 +182,12 @@ form .btn:hover{
     font-weight: 500;
     color: #fff;
 }
-.btn2:hover{
-    padding:1rem 2rem;
-    background-color: var(--hover);
-    font-size: 1.1rem;
-}
-
 .block {
     padding: 20px;
     margin: 10px;
     text-align: center;
   }
-.block:hover{
-    border-radius: 5%;
-    box-shadow: var(--box-shadow);
-    background-color: rgb(235, 244, 255);
-}
 
-  /* Style the icons */
   .block i {
     font-size: 36px;
     margin-bottom: 10px;
@@ -249,10 +224,7 @@ form .btn:hover{
     flex-direction:column;
     padding-bottom: 0;
 }
-.featured-slider .box:hover{
-    border: var(--border-hover);
-   
-}
+
 .featured-slider .box .image{
     padding: 1rem;
     background: linear-gradient(15deg, #eee 30%, #fff 30.1%);
@@ -272,9 +244,7 @@ form .btn:hover{
     font-size: 1rem;
     border-radius: 20px;
 }
-.btn3:hover{
-    background-color: var(--hover);
-}
+
 
 .featured-slider .box .icons{
     border-bottom: var(--border-hover);
@@ -285,22 +255,14 @@ form .btn:hover{
     transform: translateY(-100%);
     text-align: center;
 }
-.featured-slider .box:hover .icons{
-    transform: translateY(0%);
-}
-.featured-slider .box:hover .image{
-    transform: translateY(4rem);
-}
+
 .featured-slider .box .icons a{
     color: var(--black);
     font-size: 1.2rem;
     padding:1rem;
 }
 
-.featured-slider .box .icons a:hover{
-    background: var(--blue);
-    color: #fff;
-}
+
 .featured-slider .box .content2{
     background: #eee;
     padding: 1.5rem;
@@ -357,7 +319,7 @@ input[type="submit"] {
     border: 1px solid #ccc;
     text-transform: none;
 }
-input[type="submit"] {
+.btn, .btn3 {
     width: calc(40% - 12px);
     padding: 8px;
     border-radius: 4px;
@@ -377,9 +339,28 @@ input[type="submit"] {
     background-size: cover;
 }
 
+/* author */
+.authorBg {
+    background-color: #e9e2e1;
+    position: relative;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+}
+#middle-author{
+    background-color: #fff;
 
-
-
+}
+.homepage {
+    position: absolute;
+    top: 1.5rem;
+    left: 1rem;
+    font-size: 1.2rem;
+    border: dashed 0.2rem;
+    padding: 1px;
+}
+.homepage i{
+   color: var(--blue);
+}
 
 
 /* media queries */
@@ -395,6 +376,8 @@ input[type="submit"] {
 
         
     }
+
+
 }
 
 @media (max-width:768px) {
