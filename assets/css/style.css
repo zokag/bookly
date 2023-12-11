@@ -543,3 +543,12 @@ input[type="submit"] {
         display: none!important;
      }
 }
+
+@media (max-width:425px) {
+    .content2{
+        width: 27.5rem!important;
+    }
+    .featured-slider .box .image {
+        width: 27.5rem!important;
+    }
+}
