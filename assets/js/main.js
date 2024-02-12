@@ -7,15 +7,6 @@ window.onscroll = () =>{
     }
 }
 
-window.onload = () =>{
-  if(window.scrollY > 80){
-      document.querySelector('.header .header2').classList.add('active');
-  }
-  else{
-      document.querySelector('.header .header2').classList.remove('active');
-  }
-}
-
 //loginform start
 let loginForm = document.querySelector('.login-form-container')
 document.querySelector('#login-btn').onclick = () =>{
@@ -31,7 +22,7 @@ document.querySelector('#close-login-btn').onclick = () =>{
 
 //navigation start
 var navigationItems = [
-    { title: 'Home', url: 'index.html' },
+    { title: 'Home',url: 'index.html' },
     { title: 'About', url: 'index.html#about' },
     { title: 'Featured', url: 'index.html#featured' },
     { title: 'Contact', url: 'index.html#contact' },
@@ -70,7 +61,7 @@ var blocksData = [
     blocksData.forEach(function(block) {
       var blockDiv = document.createElement('div');
       blockDiv.classList.add('col-12', 'block');
-      blockDiv.classList.add('col-md-6');
+      blockDiv.classList.add('col-md-4');
       blockDiv.classList.add('col-lg-2');
   
       var iconElement = document.createElement('i');
@@ -97,66 +88,59 @@ var blocksData = [
 function prikaziDodatniTekst() {
   $('#dodatniTekst').show();
   $('#readMore').hide();
-  $('#tekstNastavak').show();
+
 }
 
 function sakrijDodatniTekst() {
   $('#dodatniTekst').hide();
   $('#readMore').show();
-  $('#tekstNastavak').hide();
+
 }
 //product slider start
 let productsHTML = '';
 const products = [{
-  id: "12hshd-46fgjjs",
   image:'assets/img/book1.jpeg',
   price:{
     priceCents: 1599,
     priceCents2: 2099
-  } ,
+  } 
  }, {
-  id: "13hdhd-47fzzgs",
   image:'assets/img/book2.jpeg',
   price:{
     priceCents: 1399,
     priceCents2: 1799
-  } ,
+  }
  },
   {
-    id: "14hfgd-48fggfss",
     image:'assets/img/book3.jpeg',
     price:{
       priceCents: 1099,
       priceCents2: 1599
-    } ,
+    }
 },{
-  id: "15seerd-49ffgg",
   image:'assets/img/book4.jpeg',
   price:{
     priceCents: 1799,
     priceCents2: 2299
-  } ,
+  }
 },{
-  id: "16hddsghd-50fhgs",
   image:'assets/img/book5.jpeg',
   price:{
     priceCents: 1999,
     priceCents2: 2599
-  } ,
+  }
 },{
-  id: "17hghdhd-51fghgs",
   image:'assets/img/book7.jpg',
   price:{
     priceCents: 1499,
     priceCents2: 1899
-  } ,
+  }
 },{
-  id: "18hghdhd-52dhhs",
   image:'assets/img/book8.jpg',
   price:{
     priceCents: 1699,
     priceCents2: 1999
-  } ,
+  }
 }
 ]
 let listCarts = [];
@@ -175,7 +159,7 @@ products.forEach((product) => {
      <div class="content2">
          <h3>featured books</h3>
           <div class="price pb-4">$${product.price.priceCents / 100} <span>$${product.price.priceCents2 / 100}</span></div>
-           <button class="btn3 js-add-to-cart" data-product-id="${product.id}">Buy now</button>  
+           <button class="btn3">Buy now</button>  
            </div>  
     </div>
   `;
@@ -235,7 +219,6 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   const name = document.getElementById('name').value;
   const lastName = document.getElementById('last-name').value;
   const email = document.getElementById('email').value;
-  const gender = document.querySelector('input[name="gender"]:checked');
   const message = document.getElementById('message').value;
 
   var isValid = true; 
@@ -264,13 +247,6 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
       document.getElementById('emailError').textContent = ""; 
   }
 
-  if (!gender || !gender.value) { 
-      document.getElementById('genderError').textContent = 'Please select a gender';
-      isValid = false;
-  } else {
-      document.getElementById('genderError').textContent = ""; 
-  }
-
   if (message.length < 10) {
       document.getElementById('messageError').textContent = "Message should be at least 10 characters long.";
       isValid = false;
@@ -283,7 +259,6 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
       document.getElementById('name').value = '';
       document.getElementById('last-name').value = '';
       document.getElementById('email').value = '';
-      gender.checked = false;
       document.getElementById('message').value = '';
 
 
@@ -343,7 +318,6 @@ var footerItems = [
 ];
 
 function createFooter() {
-  var footer = document.querySelector('#footer');
   var nav = document.getElementById('navigation');
   
   navigationItems.forEach(function(item) {
