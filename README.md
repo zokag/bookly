@@ -1,20 +1,20 @@
-# 📚 Bookly – JavaScript Project
+# Bookly – JavaScript Project
 
 Bookly is a simple frontend project built using vanilla JavaScript.
 
-## 🚀 Features
+## Features
 
 - Dynamic rendering of content
 - DOM manipulation
 - Interactive user interface
 
-## 🛠️ Technologies
+## Technologies
 
 - HTML5
 - CSS3
 - JavaScript (Vanilla JS)
 
-## 💡 Description
+## Description
 
 This project focuses on basic JavaScript concepts such as DOM manipulation and dynamic content updates.
 
